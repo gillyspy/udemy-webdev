@@ -1,0 +1,28 @@
+.row {
+
+    background-color: yellow; /* test color for edges */
+/* clear the float behaviour at the end of the row classed element */
+@mixin clearFix;
+
+&--column1to4 {
+     float : left;
+     width : 33.33%
+
+ }
+
+&--column8to12 {
+     float : left;
+     width: 66.67%;
+ }
+
+ &--gutters {
+    margin-right: -65px
+  }
+
+ &--gutters > div {
+
+    padding-right : 65px;
+    box-sizing : border-box; /* force padding not to impact total width values */
+
+  }
+}
