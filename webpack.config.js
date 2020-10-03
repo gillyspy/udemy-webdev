@@ -1,5 +1,6 @@
 const path = require('path');
 const postcssplugins = [
+    require('postcss-import'),
     require('postcss-simple-vars'),
     require('postcss-nested'),
     require('autoprefixer'),
