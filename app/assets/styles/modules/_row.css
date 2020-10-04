@@ -1,20 +1,28 @@
 .row {
 
-    background-color: yellow; /* test color for edges */
+   /* background-color: yellow; /* test color for edges */
 /* clear the float behaviour at the end of the row classed element */
 @mixin clearFix;
 
-&--column1to4 {
-     float : left;
-     width : 33.33%
+@mixin atMedium {
+&--medium-column1to4 {
+    float: left;
+    width: 33.33%
+}
 
+&--medium-column1to4-larger {
+     width: 37%;
  }
 
-&--column8to12 {
-     float : left;
+&--medium-column8to12 {
+     float: left;
      width: 66.67%;
  }
 
+&--medium-column8to12-smaller {
+     width: 63%;
+ }
+}
  &--gutters {
     margin-right: -65px
   }
@@ -25,4 +33,6 @@
     box-sizing : border-box; /* force padding not to impact total width values */
 
   }
+
+
 }

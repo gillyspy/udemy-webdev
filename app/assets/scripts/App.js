@@ -1,2 +1,5 @@
 import '../styles/styles.css';
-//alert('webpack detects changes!!!');
+
+if(module.hot){
+    module.hot.accept();
+}
