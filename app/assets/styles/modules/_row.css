@@ -13,6 +13,10 @@
     margin-right: -100px
   }
 
+   &--gutters-small {
+    margin-right : -45px
+    }
+
  &--gutters > div {
     padding-right : 65px;
     box-sizing : border-box; /* force padding not to impact total width values */
@@ -22,41 +26,109 @@
     padding-right : 100px;
    }
 
-@mixin atMedium {
-&--medium-column1to4 {
-    float: left;
-    width: 33.33%;
+   &--gutters-small > div {
+        padding-right : 45px
+    }
+
+@mixin atLarge{
+    &--large-column1to4 {
+          float: left;
+          width: 33.33%;
+      }
+
+    &--large-4{
+    float : left;
+    width : 33%;
+     }
+
+    &--large-column6to12 {
+         float: left;
+         width: 50%;
+     }
+
+    &--large-column1to4-larger {
+         width: 37%;
+     }
+
+    &--large-column8to12 {
+         float: left;
+         width: 66.67%;
+     }
+
+    &--large-column8to12-smaller {
+         width: 63%;
+     }
+
+    &--b-margin-until-large{
+    margin-bottom : 0;
 }
+}
+
+@mixin atMedium {
+    &--medium-column1to4 {
+        float: left;
+        width: 33.33%;
+    }
+
+    &--medium-4{
+         float : left;
+         width : 33%;
+     }
 
     &--medium-column6to12 {
          float: left;
          width: 50%;
      }
 
-&--medium-column1to4-larger {
-     width: 37%;
- }
+    &--medium-column1to4-larger {
+         width: 37%;
+    }
 
-&--medium-column8to12 {
-     float: left;
-     width: 66.67%;
- }
+    &--medium-column8to12 {
+         float: left;
+         width: 66.67%;
+    }
 
-&--medium-column8to12-smaller {
-     width: 63%;
- }
+    &--medium-column8to12-smaller {
+         width: 63%;
+    }
 
-    &--b-margin-until-medium{
-    margin-bottom : 0;
-}
+    &--b-margin-until-medium {
+         margin-bottom: 0
+     }
 }
 
 &--b-margin-until-medium{
     margin-bottom : 1rem;
 }
 
+/*begin equal height rules */
+&--equal-height-at-medium{
+    @mixin atMedium {
+        display: flex;
+    }
 
 
+    & > div {
+          float: none;
+          display: flex;
+    }
+
+ }
+
+&--equal-height-at-large{
+    @mixin atLarge{
+        display: flex;
+
+    }
+
+
+    & > div {
+          float: none;
+          display: flex;
+      }
+
+ }
 
 
 }
