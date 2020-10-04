@@ -35,17 +35,20 @@
      font-weight : 100
  }
 
- &--bolder {
-    font-weight : bolder
-  }
+&--bolder {
+     font-weight : bolder
+ }
 
-  &--b-margin-small{
-    margin-bottom: .5em;
-   }
+&--b-margin-small{
+     margin-bottom: .5em;
+ }
 
-   &--b-margin-large{
-    margin-bottom: 1.6em
-    }
+&--b-margin-large{
+     margin-bottom: 1.6em
+ }
 
+&--no-t-margin {
+    margin-top : 0;
+}
 
 }

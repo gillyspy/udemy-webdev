@@ -33,6 +33,14 @@
     box-sizing : border-box; /* force padding not to impact total width values */
 
   }
+&--b-margin-until-medium{
+    margin-bottom : 1rem;
+}
 
+@mixin atMedium {
+&--b-margin-until-medium{
+    margin-bottom : 0;
+}
+}
 
 }
