@@ -1,5 +1,5 @@
 import throttle from 'lodash/throttle'
-
+import debounce from 'lodash/debounce'
 
 class ScrollDetect {
 
@@ -11,10 +11,11 @@ class ScrollDetect {
         this.classForRevealing = classForRevealing
         this.revealedCt = 0
         //prevent browserHeight from being calculated constantly
-        this.browserHeight = window.innerHeight
+        updateHeight()
     }
 
     updateHeight(){
+
         //check every 300 ms for new windowHeight
         setInterval( () => {
             this.browserHeight = window.innerHeight
