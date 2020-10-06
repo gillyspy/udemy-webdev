@@ -6,22 +6,19 @@ class ScrollDetect {
     constructor(selectorToHook, classForHiding, classForRevealing) {
         this.itemsToDetect = document.querySelectorAll(selectorToHook)
         this.hideByDefault(classForHiding)
-        this.scrollThrottle = throttle(this.calcCaller, 200).bind(this); //backoff
+        this.scrollThrottle = throttle(this.calcCaller, 200).bind(this) //backoff
+        this.heightUpdater = debounce( this.updateHeight, 150 ).bind(this)
+        this.updateHeight(); //initialize
         this.beginEvents()
         this.classForRevealing = classForRevealing
         this.revealedCt = 0
-        //prevent browserHeight from being calculated constantly
-        updateHeight()
     }
 
     updateHeight(){
-
-        //check every 300 ms for new windowHeight
-        setInterval( () => {
-            this.browserHeight = window.innerHeight
-        },300)
+        console.log('update height');
+        this.browserHeight = window.innerHeight
+        this.calcCaller()
     }
-
     calcCaller() {
         console.log(this.itemsToDetect.length ,this.revealedCt );
         if(this.itemsToDetect.length > this.revealedCt ) {
@@ -33,6 +30,7 @@ class ScrollDetect {
             })
         } else {
             window.removeEventListener('scroll', this.scrollThrottle);
+            window.removeEventListener('resize', this.heightUpdater);
             console.log('listener removed');
         }
     }
@@ -53,6 +51,7 @@ class ScrollDetect {
     beginEvents(){
         console.log('beginEvents');
         window.addEventListener('scroll', this.scrollThrottle)
+        window.addEventListener('resize', this.heightUpdater )
     }
 
     /* hide elements by default.  */

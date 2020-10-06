@@ -3,7 +3,8 @@ import MobileMenu from './modules/MobileMenu.js'
 import ScrollDetect from './modules/ScrollDetect.js'
 
 
-var scrollDetect = new ScrollDetect( '.feature-item', 'item-to-detect', 'item-to-detect--is-visible');
+new ScrollDetect( '.feature-item', 'item-to-detect', 'item-to-detect--is-visible');
+new ScrollDetect( '.testimonial', 'item-to-detect', 'item-to-detect--is-visible');
 
 /*
 constructor(selectorToHook, classForHiding, classForRevealing) {
