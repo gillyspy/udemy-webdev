@@ -1,6 +1,13 @@
-import '../styles/styles.css';
-import MobileMenu from './modules/MobileMenu.js';
+import '../styles/styles.css'
+import MobileMenu from './modules/MobileMenu.js'
+import ScrollDetect from './modules/ScrollDetect.js'
 
+
+var scrollDetect = new ScrollDetect( '.feature-item', 'item-to-detect', 'item-to-detect--is-visible');
+
+/*
+constructor(selectorToHook, classForHiding, classForRevealing) {
+*/
 
 let mobileMenu = new MobileMenu(
     '.site-header--menu-icon',
@@ -12,6 +19,6 @@ let mobileMenu = new MobileMenu(
 );
 
 if(module.hot){
-    module.hot.accept();
+    module.hot.accept()
 }
 
