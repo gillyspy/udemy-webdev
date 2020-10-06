@@ -9,7 +9,13 @@
  }
 
     @mixin atMedium {
+        position : fixed;
         background-color : rgba($mainBlue, 0.3); /**/
+
+        &--dark {
+            background-color: rgb(62,92,114);
+            transition : background-color .3s ease-in;
+        }
     }
 
     width : 100%;
@@ -28,12 +34,19 @@
           padding: 13px;
           top : 0;
           left: 50%;
-          transform: translateX(-50%);
+          transform: translateX(-50%) scale(.8);
+         transition : transform 300ms ease-in ;
+          transform-origin: 50% 0;
 
           @mixin atMedium{
               left:  auto;
               transform: translateX(0);
               padding : 25px 36px;
+
+              .site-header--dark & {
+                  transform: scale(.55);
+                  transition : transform 300ms ease-in ;
+              }
           }
       }
 
