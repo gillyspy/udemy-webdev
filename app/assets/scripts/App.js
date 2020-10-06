@@ -1,6 +1,8 @@
 import '../styles/styles.css';
 import MobileMenu from './modules/MobileMenu.js';
+import LockHeader from './modules/LockHeader.js';
 
+new LockHeader('.site-header','site-header--dark');
 
 let mobileMenu = new MobileMenu(
     '.site-header--menu-icon',
