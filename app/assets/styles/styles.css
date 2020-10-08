@@ -1,4 +1,3 @@
-@import 'normalize.css';
 @import 'modules/_variables.css';
 @import 'modules/_mixins.css';
 @import 'modules/_global.css';
@@ -16,3 +15,5 @@
 @import 'modules/_site-header.css';
 @import 'modules/_primary_nav.css';
 @import 'modules/_item-to-detect.css';
+@import 'modules/_modal.css';
+@import 'modules/_social-icons.css';
