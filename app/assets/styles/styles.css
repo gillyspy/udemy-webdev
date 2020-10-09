@@ -1,3 +1,4 @@
+@import 'normalize.css';
 @import 'modules/_variables.css';
 @import 'modules/_mixins.css';
 @import 'modules/_global.css';
