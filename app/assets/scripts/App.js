@@ -1,4 +1,5 @@
 import '../styles/styles.css'
+import 'lazysizes'
 import MobileMenu from './modules/MobileMenu.js'
 import ScrollDetect from './modules/ScrollDetect.js'
 import LockHeader from './modules/LockHeader.js';
