@@ -23,3 +23,4 @@ Thumbs.db
 .tmproj
 *.esproj
 /dist/
+docs/
