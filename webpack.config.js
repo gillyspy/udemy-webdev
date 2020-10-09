@@ -1,4 +1,6 @@
+const currentTask = process.env.npm_lifecycle_event;
 const path = require('path');
+
 const postcssplugins = [
     require('postcss-import'),
     require('postcss-mixins'),
@@ -8,14 +10,16 @@ const postcssplugins = [
     require('autoprefixer')
 ];
 
-module.exports = {
-    entry: './app/assets/scripts/App.js',
+let config = {
+    entry: './app/assets/scripts/App.js'
+}
 
-    output : {
+if (currentTask == 'dev') {
+    config.output = {
         filename : 'bundled.js',
         path : path.resolve( __dirname, 'app' ) //multiplatform friendly
-    },
-    devServer : {
+    };
+    config.devServer = {
         before : function(app, server){
             server._watch('./app/**/*.html')
 
@@ -24,10 +28,9 @@ module.exports = {
         hot : true,
         port : 3000,
         host : '0.0.0.0'
-    },
-    mode : 'development',
-    //watch : true,
-    module : {
+    };
+    config.mode = 'development'
+    config.module = {
         rules : [
             {
                 test : /[.]css$/i,
@@ -44,4 +47,30 @@ module.exports = {
             }
         ]
     }
-};
+
+
+} else if (currentTask == 'build'){
+    config.output = {
+        filename: 'bundled.js',
+        path    : path.resolve(__dirname, 'dist') //multiplatform friendly
+    };
+    config.mode = 'production';
+    config.module = {
+        rules : [
+            {
+                test : /[.]css$/i,
+                use : [
+                    'style-loader',
+                    'css-loader?url=false',
+                    {
+                        loader: 'postcss-loader',
+                        options : {
+                            plugins : postcssplugins
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
+module.exports = config;
